@@ -1,0 +1,170 @@
+{
+  "info": {
+    "name": "Global Solution — ForestFire API",
+    "description": "Collection completa da API de Previsão de Incêndios Florestais com Dados de Satélite",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "basic",
+    "basic": [
+      { "key": "username", "value": "admin", "type": "string" },
+      { "key": "password", "value": "admin123", "type": "string" }
+    ]
+  },
+  "item": [
+    {
+      "name": "1. Cadastrar Solução",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/solucoes", "host": ["localhost"], "port": "8080", "path": ["api", "solucoes"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"FireSat - Monitoramento em Tempo Real\",\n    \"descricao\": \"Sistema de monitoramento em tempo real de focos de incêndio na Amazônia utilizando constelação de nanossatélites com sensores infravermelhos.\",\n    \"areaImpacto\": \"Amazônia\",\n    \"status\": \"EM_DESENVOLVIMENTO\",\n    \"urgencia\": 5,\n    \"nivelImpacto\": 5,\n    \"odsRelacionado\": \"ODS 15 - Vida Terrestre\",\n    \"fonteDados\": \"Constelação NanoSat / INPE\",\n    \"regiaoMonitorada\": \"Amazonas - AM\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. Listar Todas as Soluções",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/solucoes", "host": ["localhost"], "port": "8080", "path": ["api", "solucoes"] }
+      },
+      "response": []
+    },
+    {
+      "name": "3. Buscar Solução por ID",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/solucoes/1", "host": ["localhost"], "port": "8080", "path": ["api", "solucoes", "1"] }
+      },
+      "response": []
+    },
+    {
+      "name": "3b. Buscar ID Inexistente (404)",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/solucoes/999", "host": ["localhost"], "port": "8080", "path": ["api", "solucoes", "999"] }
+      },
+      "response": []
+    },
+    {
+      "name": "4. Buscar por Área de Impacto",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/solucoes/area?nome=Amazônia",
+          "host": ["localhost"], "port": "8080",
+          "path": ["api", "solucoes", "area"],
+          "query": [{ "key": "nome", "value": "Amazônia" }]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5. Atualizar Solução Completa (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/solucoes/1", "host": ["localhost"], "port": "8080", "path": ["api", "solucoes", "1"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"SentinelFire v2 - Detecção Avançada\",\n    \"descricao\": \"Versão atualizada com modelo de IA para prever focos de incêndio com 72h de antecedência usando dados Sentinel-2.\",\n    \"areaImpacto\": \"Amazônia\",\n    \"status\": \"EM_OPERACAO\",\n    \"urgencia\": 5,\n    \"nivelImpacto\": 5,\n    \"odsRelacionado\": \"ODS 15 - Vida Terrestre\",\n    \"fonteDados\": \"ESA Sentinel-2 / INPE BDQueimadas\",\n    \"regiaoMonitorada\": \"Pará e Amazonas\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6. Alterar Status (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/solucoes/3/status", "host": ["localhost"], "port": "8080", "path": ["api", "solucoes", "3", "status"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"status\": \"VALIDADA\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6b. Alterar Status CANCELADA (409)",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/solucoes/4/status", "host": ["localhost"], "port": "8080", "path": ["api", "solucoes", "4", "status"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"status\": \"CANCELADA\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "7. Excluir Solução (DELETE)",
+      "request": {
+        "method": "DELETE",
+        "url": { "raw": "http://localhost:8080/api/solucoes/5", "host": ["localhost"], "port": "8080", "path": ["api", "solucoes", "5"] }
+      },
+      "response": []
+    },
+    {
+      "name": "7b. Excluir Solução VALIDADA (409)",
+      "request": {
+        "method": "DELETE",
+        "url": { "raw": "http://localhost:8080/api/solucoes/2", "host": ["localhost"], "port": "8080", "path": ["api", "solucoes", "2"] }
+      },
+      "response": []
+    },
+    {
+      "name": "8. Buscar por ODS",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/solucoes/ods?nome=ODS 15",
+          "host": ["localhost"], "port": "8080",
+          "path": ["api", "solucoes", "ods"],
+          "query": [{ "key": "nome", "value": "ODS 15" }]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "9. Resumo Geral",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8080/api/solucoes/resumo", "host": ["localhost"], "port": "8080", "path": ["api", "solucoes", "resumo"] }
+      },
+      "response": []
+    },
+    {
+      "name": "10. Validação - Dados Inválidos (400)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:8080/api/solucoes", "host": ["localhost"], "port": "8080", "path": ["api", "solucoes"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"AB\",\n    \"descricao\": \"curta\",\n    \"areaImpacto\": \"\",\n    \"status\": null,\n    \"urgencia\": 10,\n    \"nivelImpacto\": 0\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "11. Acesso Negado - USER tentando DELETE (403)",
+      "request": {
+        "method": "DELETE",
+        "auth": {
+          "type": "basic",
+          "basic": [
+            { "key": "username", "value": "user", "type": "string" },
+            { "key": "password", "value": "user123", "type": "string" }
+          ]
+        },
+        "url": { "raw": "http://localhost:8080/api/solucoes/1", "host": ["localhost"], "port": "8080", "path": ["api", "solucoes", "1"] }
+      },
+      "response": []
+    }
+  ]
+}
