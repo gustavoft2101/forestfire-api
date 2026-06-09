@@ -150,7 +150,7 @@ src/main/java/br/com/fiap/forestfire/
 
 ## 🎥 Vídeo Explicativo
 
-> Link do vídeo: *(adicionar link aqui)*
+> Link do vídeo: https://youtu.be/I2Yp8jCFLwQ
 
 ---
 
