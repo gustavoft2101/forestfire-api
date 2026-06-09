@@ -15,9 +15,9 @@
 
 ## 🌍 Problema Escolhido
 
-O Brasil é um dos países mais afetados por incêndios florestais no mundo, especialmente em biomas como a Amazônia, o Cerrado e o Pantanal. A detecção tardia desses eventos causa danos ambientais irreversíveis, perda de biodiversidade, emissão massiva de CO₂ e impactos diretos na saúde humana.
+Os incêndios florestais representam um grande desafio ambiental, causando impactos na biodiversidade, na qualidade do ar e nos ecossistemas. A identificação e o acompanhamento dessas ocorrências são fundamentais para apoiar ações de prevenção e resposta.
 
-Nossa solução propõe uma API REST para **cadastrar, gerenciar e acompanhar soluções tecnológicas espaciais** voltadas à previsão e monitoramento de incêndios florestais, utilizando dados de satélites como Sentinel-2, MODIS/NASA e CBERS-4A/INPE.
+Para contribuir com esse cenário, foi proposta uma API REST para cadastro, gerenciamento e acompanhamento de soluções tecnológicas relacionadas ao monitoramento ambiental. A plataforma permite organizar informações sobre iniciativas voltadas à prevenção de incêndios florestais, facilitando o controle, a consulta e o acompanhamento dessas soluções.
 
 ---
 
